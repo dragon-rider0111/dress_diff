@@ -4,10 +4,11 @@ from diffusers import StableDiffusionImg2ImgPipeline
 from PIL import Image
 
 from dress_diff.utils import (
+    diff_scheduler_list,
     get_scheduler_list,
     stable_model_list,
-    diff_scheduler_list,
 )
+
 
 class StableDiffusionImage2ImageGenerator:
     def __init__(self):

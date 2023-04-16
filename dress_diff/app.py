@@ -1,4 +1,5 @@
 import gradio as gr
+
 from dress_diff import (
     CodeformerUpscalerGenerator,
     StableDiffusionControlNetCannyGenerator,
@@ -10,8 +11,8 @@ from dress_diff import (
     StableDiffusionControlNetSegGenerator,
     StableDiffusionImage2ImageGenerator,
     StableDiffusionText2ImageGenerator,
-    StableDiffusionInpaintGenerator,
 )
+
 
 def diffusion_app():
     app = gr.Blocks()

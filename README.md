@@ -14,6 +14,8 @@ This repo is a Stable Diffusion + ControlNet + Inpaint WebUI implementation.
 git clone https://github.com/kadirnar/dress_diff
 cd dress_diff
 pip install -r requirements.txt
+pip install -e.
+
 ```
 
 ### Web Demo Usage

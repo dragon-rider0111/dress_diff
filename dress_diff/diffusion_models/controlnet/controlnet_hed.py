@@ -4,13 +4,13 @@ from controlnet_aux import HEDdetector
 from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
 from PIL import Image
 
-
 from dress_diff.utils import (
     controlnet_hed_model_list,
+    diff_scheduler_list,
     get_scheduler_list,
     stable_model_list,
-    diff_scheduler_list,
 )
+
 
 class StableDiffusionControlNetHEDGenerator:
     def __init__(self):
@@ -139,8 +139,8 @@ class StableDiffusionControlNetHEDGenerator:
                                     label="ControlNet Model Id",
                                 )
                                 controlnet_hed_scheduler = gr.Dropdown(
-                                    choices=SCHEDULER_LIST,
-                                    value=SCHEDULER_LIST[0],
+                                    choices=diff_scheduler_list,
+                                    value=diff_scheduler_list[0],
                                     label="Scheduler",
                                 )
 
