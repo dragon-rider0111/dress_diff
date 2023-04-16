@@ -1,9 +1,11 @@
 <div align="center">
 <h2>
-    Dress Diffusion: Dress Diffusion + ControlNet + Upscaler Models
+    Diffusion WebUI: Stable Diffusion + ControlNet + Inpaint
 </h2>
+<h4>
+    <img width="700" alt="teaser" src="data/logo.png">
+</h4>
 </div>
-
 
 ### Installation
 ```bash
