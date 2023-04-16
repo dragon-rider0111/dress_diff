@@ -4,12 +4,13 @@ from controlnet_aux import HEDdetector
 from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
 from PIL import Image
 
-from dress_diff.utils.model_list import (
-    controlnet_hed_model_list,
-    stable_model_list,
-)
-from dress_diff.utils.scheduler_list import SCHEDULER_LIST, get_scheduler_list
 
+from dress_diff.utils import (
+    controlnet_hed_model_list,
+    get_scheduler_list,
+    stable_model_list,
+    diff_scheduler_list,
+)
 
 class StableDiffusionControlNetHEDGenerator:
     def __init__(self):

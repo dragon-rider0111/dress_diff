@@ -5,12 +5,12 @@ from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
 from PIL import Image
 from transformers import pipeline
 
-from dress_diff.utils.model_list import (
+from dress_diff.utils import (
     controlnet_depth_model_list,
+    get_scheduler_list,
     stable_model_list,
+    diff_scheduler_list,
 )
-from dress_diff.utils.scheduler_list import SCHEDULER_LIST, get_scheduler_list
-
 
 class StableDiffusionControlNetDepthGenerator:
     def __init__(self):

@@ -3,9 +3,11 @@ import torch
 from diffusers import StableDiffusionImg2ImgPipeline
 from PIL import Image
 
-from dress_diff.utils.model_list import stable_model_list
-from dress_diff.utils.scheduler_list import SCHEDULER_LIST, get_scheduler_list
-
+from dress_diff.utils import (
+    get_scheduler_list,
+    stable_model_list,
+    diff_scheduler_list,
+)
 
 class StableDiffusionImage2ImageGenerator:
     def __init__(self):
@@ -104,8 +106,8 @@ class StableDiffusionImage2ImageGenerator:
                         with gr.Row():
                             with gr.Column():
                                 image2image_scheduler = gr.Dropdown(
-                                    choices=SCHEDULER_LIST,
-                                    value=SCHEDULER_LIST[0],
+                                    choices=diff_scheduler_list,
+                                    value=diff_scheduler_list[0],
                                     label="Scheduler",
                                 )
                                 image2image_num_images_per_prompt = gr.Slider(

@@ -7,7 +7,7 @@ from diffusers import (
     UniPCMultistepScheduler,
 )
 
-scheduler_list = [
+diff_scheduler_list = [
     "DDIM",
     "EulerA",
     "Euler",
