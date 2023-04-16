@@ -27,7 +27,7 @@ from dress_diff.utils import (
     controlnet_pose_model_list,
     controlnet_scribble_model_list,
     controlnet_seg_model_list,
+    diff_scheduler_list,
     get_scheduler_list,
-    scheduler_list,
     stable_model_list,
 )

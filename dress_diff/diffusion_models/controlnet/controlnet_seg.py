@@ -5,9 +5,11 @@ from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
 from PIL import Image
 from transformers import AutoImageProcessor, UperNetForSemanticSegmentation
 
-from dress_diff.utils.model_list import stable_model_list
-from dress_diff.utils.scheduler_list import SCHEDULER_LIST, get_scheduler_list
-
+from dress_diff.utils import (
+    get_scheduler_list,
+    stable_model_list,
+    diff_scheduler_list,
+)
 
 def ade_palette():
     """ADE20K palette that maps each class to RGB values."""
