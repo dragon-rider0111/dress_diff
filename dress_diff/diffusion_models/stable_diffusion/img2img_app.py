@@ -3,11 +3,7 @@ import torch
 from diffusers import StableDiffusionImg2ImgPipeline
 from PIL import Image
 
-from dress_diff.utils import (
-    diff_scheduler_list,
-    get_scheduler_list,
-    stable_model_list,
-)
+from dress_diff.utils import diff_scheduler_list, get_scheduler_list, stable_model_list
 
 
 class StableDiffusionImage2ImageGenerator:
@@ -66,9 +62,7 @@ class StableDiffusionImage2ImageGenerator:
         with gr.Blocks():
             with gr.Row():
                 with gr.Column():
-                    image2image_image_file = gr.Image(
-                        type="filepath", label="Image"
-                    ).style(height=260)
+                    image2image_image_file = gr.Image(type="filepath", label="Image").style(height=260)
 
                     image2image_prompt = gr.Textbox(
                         lines=1,

@@ -2,11 +2,7 @@ import gradio as gr
 import torch
 from diffusers import StableDiffusionPipeline
 
-from dress_diff.utils import (
-    diff_scheduler_list,
-    get_scheduler_list,
-    stable_model_list,
-)
+from dress_diff.utils import diff_scheduler_list, get_scheduler_list, stable_model_list
 
 
 class StableDiffusionText2ImageGenerator:

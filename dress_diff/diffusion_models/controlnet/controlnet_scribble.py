@@ -1,19 +1,10 @@
 import gradio as gr
 import torch
 from controlnet_aux import HEDdetector
-from diffusers import (
-    ControlNetModel,
-    StableDiffusionControlNetPipeline,
-    UniPCMultistepScheduler,
-)
+from diffusers import ControlNetModel, StableDiffusionControlNetPipeline, UniPCMultistepScheduler
 from PIL import Image
 
-from dress_diff.utils import (
-    controlnet_scribble_model_list,
-    diff_scheduler_list,
-    get_scheduler_list,
-    stable_model_list,
-)
+from dress_diff.utils import controlnet_scribble_model_list, diff_scheduler_list, get_scheduler_list, stable_model_list
 
 
 class StableDiffusionControlNetScribbleGenerator:
@@ -22,9 +13,7 @@ class StableDiffusionControlNetScribbleGenerator:
 
     def load_model(self, stable_model_path, controlnet_model_path, scheduler):
         if self.pipe is None:
-            controlnet = ControlNetModel.from_pretrained(
-                controlnet_model_path, torch_dtype=torch.float16
-            )
+            controlnet = ControlNetModel.from_pretrained(controlnet_model_path, torch_dtype=torch.float16)
 
             self.pipe = StableDiffusionControlNetPipeline.from_pretrained(
                 pretrained_model_name_or_path=stable_model_path,
@@ -90,9 +79,7 @@ class StableDiffusionControlNetScribbleGenerator:
         with gr.Blocks():
             with gr.Row():
                 with gr.Column():
-                    controlnet_scribble_image_file = gr.Image(
-                        type="filepath", label="Image"
-                    )
+                    controlnet_scribble_image_file = gr.Image(type="filepath", label="Image")
                     controlnet_scribble_prompt = gr.Textbox(
                         lines=1,
                         show_label=False,
@@ -128,14 +115,12 @@ class StableDiffusionControlNetScribbleGenerator:
                                 label="Num Inference Step",
                             )
 
-                            controlnet_scribble_num_images_per_prompt = (
-                                gr.Slider(
-                                    minimum=1,
-                                    maximum=10,
-                                    step=1,
-                                    value=1,
-                                    label="Number Of Images",
-                                )
+                            controlnet_scribble_num_images_per_prompt = gr.Slider(
+                                minimum=1,
+                                maximum=10,
+                                step=1,
+                                value=1,
+                                label="Number Of Images",
                             )
                         with gr.Row():
                             with gr.Column():

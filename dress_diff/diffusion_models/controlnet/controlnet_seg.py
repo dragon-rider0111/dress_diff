@@ -5,11 +5,7 @@ from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
 from PIL import Image
 from transformers import AutoImageProcessor, UperNetForSemanticSegmentation
 
-from dress_diff.utils import (
-    diff_scheduler_list,
-    get_scheduler_list,
-    stable_model_list,
-)
+from dress_diff.utils import diff_scheduler_list, get_scheduler_list, stable_model_list
 
 
 def ade_palette():
@@ -179,9 +175,7 @@ class StableDiffusionControlNetSegGenerator:
     ):
 
         if self.pipe is None:
-            controlnet = ControlNetModel.from_pretrained(
-                "lllyasviel/sd-controlnet-seg", torch_dtype=torch.float16
-            )
+            controlnet = ControlNetModel.from_pretrained("lllyasviel/sd-controlnet-seg", torch_dtype=torch.float16)
             self.pipe = StableDiffusionControlNetPipeline.from_pretrained(
                 pretrained_model_name_or_path=stable_model_path,
                 controlnet=controlnet,
@@ -196,12 +190,8 @@ class StableDiffusionControlNetSegGenerator:
         return self.pipe
 
     def controlnet_seg(self, image_path: str):
-        image_processor = AutoImageProcessor.from_pretrained(
-            "openmmlab/upernet-convnext-small"
-        )
-        image_segmentor = UperNetForSemanticSegmentation.from_pretrained(
-            "openmmlab/upernet-convnext-small"
-        )
+        image_processor = AutoImageProcessor.from_pretrained("openmmlab/upernet-convnext-small")
+        image_segmentor = UperNetForSemanticSegmentation.from_pretrained("openmmlab/upernet-convnext-small")
 
         image = Image.open(image_path).convert("RGB")
         pixel_values = image_processor(image, return_tensors="pt").pixel_values
@@ -209,9 +199,7 @@ class StableDiffusionControlNetSegGenerator:
         with torch.no_grad():
             outputs = image_segmentor(pixel_values)
 
-        seg = image_processor.post_process_semantic_segmentation(
-            outputs, target_sizes=[image.size[::-1]]
-        )[0]
+        seg = image_processor.post_process_semantic_segmentation(outputs, target_sizes=[image.size[::-1]])[0]
 
         color_seg = np.zeros((seg.shape[0], seg.shape[1], 3), dtype=np.uint8)
         palette = np.array(ade_palette())
@@ -264,9 +252,7 @@ class StableDiffusionControlNetSegGenerator:
         with gr.Blocks():
             with gr.Row():
                 with gr.Column():
-                    controlnet_seg_image_file = gr.Image(
-                        type="filepath", label="Image"
-                    )
+                    controlnet_seg_image_file = gr.Image(type="filepath", label="Image")
 
                     controlnet_seg_prompt = gr.Textbox(
                         lines=1,
@@ -310,14 +296,12 @@ class StableDiffusionControlNetSegGenerator:
                                     value=diff_scheduler_list[0],
                                     label="Scheduler",
                                 )
-                                controlnet_seg_num_images_per_prompt = (
-                                    gr.Slider(
-                                        minimum=1,
-                                        maximum=10,
-                                        step=1,
-                                        value=1,
-                                        label="Number Of Images",
-                                    )
+                                controlnet_seg_num_images_per_prompt = gr.Slider(
+                                    minimum=1,
+                                    maximum=10,
+                                    step=1,
+                                    value=1,
+                                    label="Number Of Images",
                                 )
                                 controlnet_seg_seed_generator = gr.Slider(
                                     minimum=0,

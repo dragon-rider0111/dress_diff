@@ -5,12 +5,7 @@ import torch
 from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
 from PIL import Image
 
-from dress_diff.utils import (
-    controlnet_canny_model_list,
-    diff_scheduler_list,
-    get_scheduler_list,
-    stable_model_list,
-)
+from dress_diff.utils import controlnet_canny_model_list, diff_scheduler_list, get_scheduler_list, stable_model_list
 
 
 class StableDiffusionControlNetCannyGenerator:
@@ -19,9 +14,7 @@ class StableDiffusionControlNetCannyGenerator:
 
     def load_model(self, stable_model_path, controlnet_model_path, scheduler):
         if self.pipe is None:
-            controlnet = ControlNetModel.from_pretrained(
-                controlnet_model_path, torch_dtype=torch.float16
-            )
+            controlnet = ControlNetModel.from_pretrained(controlnet_model_path, torch_dtype=torch.float16)
             self.pipe = StableDiffusionControlNetPipeline.from_pretrained(
                 pretrained_model_name_or_path=stable_model_path,
                 controlnet=controlnet,
@@ -92,9 +85,7 @@ class StableDiffusionControlNetCannyGenerator:
         with gr.Blocks():
             with gr.Row():
                 with gr.Column():
-                    controlnet_canny_image_file = gr.Image(
-                        type="filepath", label="Image"
-                    )
+                    controlnet_canny_image_file = gr.Image(type="filepath", label="Image")
 
                     controlnet_canny_prompt = gr.Textbox(
                         lines=1,

@@ -4,11 +4,7 @@ from controlnet_aux import MLSDdetector
 from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
 from PIL import Image
 
-from dress_diff.utils import (
-    diff_scheduler_list,
-    get_scheduler_list,
-    stable_model_list,
-)
+from dress_diff.utils import diff_scheduler_list, get_scheduler_list, stable_model_list
 
 
 class StableDiffusionControlNetMLSDGenerator:
@@ -17,9 +13,7 @@ class StableDiffusionControlNetMLSDGenerator:
 
     def load_model(self, stable_model_path, controlnet_model_path, scheduler):
         if self.pipe is None:
-            controlnet = ControlNetModel.from_pretrained(
-                controlnet_model_path, torch_dtype=torch.float16
-            )
+            controlnet = ControlNetModel.from_pretrained(controlnet_model_path, torch_dtype=torch.float16)
 
             self.pipe = StableDiffusionControlNetPipeline.from_pretrained(
                 pretrained_model_name_or_path=stable_model_path,
@@ -84,9 +78,7 @@ class StableDiffusionControlNetMLSDGenerator:
         with gr.Blocks():
             with gr.Row():
                 with gr.Column():
-                    controlnet_mlsd_image_file = gr.Image(
-                        type="filepath", label="Image"
-                    )
+                    controlnet_mlsd_image_file = gr.Image(type="filepath", label="Image")
 
                     controlnet_mlsd_prompt = gr.Textbox(
                         lines=1,
@@ -137,14 +129,12 @@ class StableDiffusionControlNetMLSDGenerator:
                                     value=0,
                                     label="Seed Generator",
                                 )
-                                controlnet_mlsd_num_images_per_prompt = (
-                                    gr.Slider(
-                                        minimum=1,
-                                        maximum=10,
-                                        step=1,
-                                        value=1,
-                                        label="Number Of Images",
-                                    )
+                                controlnet_mlsd_num_images_per_prompt = gr.Slider(
+                                    minimum=1,
+                                    maximum=10,
+                                    step=1,
+                                    value=1,
+                                    label="Number Of Images",
                                 )
 
                     controlnet_mlsd_predict = gr.Button(value="Generator")

@@ -4,12 +4,7 @@ from controlnet_aux import HEDdetector
 from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
 from PIL import Image
 
-from dress_diff.utils import (
-    controlnet_hed_model_list,
-    diff_scheduler_list,
-    get_scheduler_list,
-    stable_model_list,
-)
+from dress_diff.utils import controlnet_hed_model_list, diff_scheduler_list, get_scheduler_list, stable_model_list
 
 
 class StableDiffusionControlNetHEDGenerator:
@@ -18,9 +13,7 @@ class StableDiffusionControlNetHEDGenerator:
 
     def load_model(self, stable_model_path, controlnet_model_path, scheduler):
         if self.pipe is None:
-            controlnet = ControlNetModel.from_pretrained(
-                controlnet_model_path, torch_dtype=torch.float16
-            )
+            controlnet = ControlNetModel.from_pretrained(controlnet_model_path, torch_dtype=torch.float16)
 
             self.pipe = StableDiffusionControlNetPipeline.from_pretrained(
                 pretrained_model_name_or_path=stable_model_path,
@@ -86,9 +79,7 @@ class StableDiffusionControlNetHEDGenerator:
         with gr.Blocks():
             with gr.Row():
                 with gr.Column():
-                    controlnet_hed_image_file = gr.Image(
-                        type="filepath", label="Image"
-                    )
+                    controlnet_hed_image_file = gr.Image(type="filepath", label="Image")
                     controlnet_hed_prompt = gr.Textbox(
                         lines=1,
                         show_label=False,

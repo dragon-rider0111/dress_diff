@@ -15,9 +15,6 @@ from dress_diff.diffusion_models.stable_diffusion import (
     StableDiffusionText2ImageGenerator,
 )
 
-# Upscaler Models
-from dress_diff.upscaler_models import CodeformerUpscalerGenerator
-
 # Utils
 from dress_diff.utils import (
     controlnet_canny_model_list,
@@ -31,3 +28,6 @@ from dress_diff.utils import (
     get_scheduler_list,
     stable_model_list,
 )
+
+# Upscaler Models
+# from dress_diff.upscaler_models import CodeformerUpscalerGenerator

@@ -8,7 +8,4 @@ from dress_diff.utils.model_list import (
     controlnet_seg_model_list,
     stable_model_list,
 )
-from dress_diff.utils.scheduler_list import (
-    diff_scheduler_list,
-    get_scheduler_list,
-)
+from dress_diff.utils.scheduler_list import diff_scheduler_list, get_scheduler_list
