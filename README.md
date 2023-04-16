@@ -1,6 +1,6 @@
 <div align="center">
 <h2>
-    Dress Diffusion WebUI: Dress Diffusion + ControlNet + Upscaler Models
+    Dress Diffusion: Dress Diffusion + ControlNet + Upscaler Models
 </h2>
 </div>
 
