@@ -26,9 +26,7 @@ class CodeformerUpscalerGenerator:
         with gr.Blocks():
             with gr.Row():
                 with gr.Column():
-                    codeformer_upscale_image_file = gr.Image(
-                        type="filepath", label="Image"
-                    ).style(height=260)
+                    codeformer_upscale_image_file = gr.Image(type="filepath", label="Image").style(height=260)
 
                     with gr.Row():
                         with gr.Column():
@@ -57,9 +55,7 @@ class CodeformerUpscalerGenerator:
                                     value=0.5,
                                 )
 
-                    codeformer_upscale_predict_button = gr.Button(
-                        value="Generator"
-                    )
+                    codeformer_upscale_predict_button = gr.Button(value="Generator")
 
                 with gr.Column():
                     output_image = gr.Gallery(

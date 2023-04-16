@@ -22,26 +22,18 @@ def get_scheduler_list(pipe, scheduler):
         pipe.scheduler = DDIMScheduler.from_config(pipe.scheduler.config)
 
     elif scheduler == scheduler_list[1]:
-        pipe.scheduler = EulerAncestralDiscreteScheduler.from_config(
-            pipe.scheduler.config
-        )
+        pipe.scheduler = EulerAncestralDiscreteScheduler.from_config(pipe.scheduler.config)
 
     elif scheduler == scheduler_list[2]:
-        pipe.scheduler = EulerDiscreteScheduler.from_config(
-            pipe.scheduler.config
-        )
+        pipe.scheduler = EulerDiscreteScheduler.from_config(pipe.scheduler.config)
 
     elif scheduler == scheduler_list[3]:
         pipe.scheduler = LMSDiscreteScheduler.from_config(pipe.scheduler.config)
 
     elif scheduler == scheduler_list[4]:
-        pipe.scheduler = HeunDiscreteScheduler.from_config(
-            pipe.scheduler.config
-        )
+        pipe.scheduler = HeunDiscreteScheduler.from_config(pipe.scheduler.config)
 
     elif scheduler == scheduler_list[5]:
-        pipe.scheduler = UniPCMultistepScheduler.from_config(
-            pipe.scheduler.config
-        )
+        pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config)
 
     return pipe

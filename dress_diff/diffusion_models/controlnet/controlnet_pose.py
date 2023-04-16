@@ -1,19 +1,10 @@
 import gradio as gr
 import torch
 from controlnet_aux import OpenposeDetector
-from diffusers import (
-    ControlNetModel,
-    StableDiffusionControlNetPipeline,
-    UniPCMultistepScheduler,
-)
+from diffusers import ControlNetModel, StableDiffusionControlNetPipeline, UniPCMultistepScheduler
 from PIL import Image
 
-from dress_diff.utils import (
-    controlnet_pose_model_list,
-    diff_scheduler_list,
-    get_scheduler_list,
-    stable_model_list,
-)
+from dress_diff.utils import controlnet_pose_model_list, diff_scheduler_list, get_scheduler_list, stable_model_list
 
 
 class StableDiffusionControlNetPoseGenerator:
@@ -22,9 +13,7 @@ class StableDiffusionControlNetPoseGenerator:
 
     def load_model(self, stable_model_path, controlnet_model_path, scheduler):
         if self.pipe is None:
-            controlnet = ControlNetModel.from_pretrained(
-                controlnet_model_path, torch_dtype=torch.float16
-            )
+            controlnet = ControlNetModel.from_pretrained(controlnet_model_path, torch_dtype=torch.float16)
 
             self.pipe = StableDiffusionControlNetPipeline.from_pretrained(
                 pretrained_model_name_or_path=stable_model_path,
@@ -91,9 +80,7 @@ class StableDiffusionControlNetPoseGenerator:
         with gr.Blocks():
             with gr.Row():
                 with gr.Column():
-                    controlnet_pose_image_file = gr.Image(
-                        type="filepath", label="Image"
-                    )
+                    controlnet_pose_image_file = gr.Image(type="filepath", label="Image")
 
                     controlnet_pose_prompt = gr.Textbox(
                         lines=1,

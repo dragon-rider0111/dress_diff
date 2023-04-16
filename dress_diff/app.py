@@ -1,7 +1,6 @@
 import gradio as gr
 
 from dress_diff import (
-    CodeformerUpscalerGenerator,
     StableDiffusionControlNetCannyGenerator,
     StableDiffusionControlNetDepthGenerator,
     StableDiffusionControlNetHEDGenerator,
@@ -38,8 +37,6 @@ def diffusion_app():
                         StableDiffusionControlNetScribbleGenerator.app()
                     with gr.Tab("Seg"):
                         StableDiffusionControlNetSegGenerator.app()
-                with gr.Tab("Upscaler"):
-                    CodeformerUpscalerGenerator.app()
 
     app.launch(debug=True, enable_queue=True)
 
