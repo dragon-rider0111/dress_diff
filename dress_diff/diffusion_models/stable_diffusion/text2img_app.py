@@ -3,10 +3,11 @@ import torch
 from diffusers import StableDiffusionPipeline
 
 from dress_diff.utils import (
+    diff_scheduler_list,
     get_scheduler_list,
     stable_model_list,
-    diff_scheduler_list,
 )
+
 
 class StableDiffusionText2ImageGenerator:
     def __init__(self):

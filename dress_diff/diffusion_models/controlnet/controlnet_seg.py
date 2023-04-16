@@ -6,10 +6,11 @@ from PIL import Image
 from transformers import AutoImageProcessor, UperNetForSemanticSegmentation
 
 from dress_diff.utils import (
+    diff_scheduler_list,
     get_scheduler_list,
     stable_model_list,
-    diff_scheduler_list,
 )
+
 
 def ade_palette():
     """ADE20K palette that maps each class to RGB values."""
@@ -305,8 +306,8 @@ class StableDiffusionControlNetSegGenerator:
                         with gr.Row():
                             with gr.Column():
                                 controlnet_seg_scheduler = gr.Dropdown(
-                                    choices=SCHEDULER_LIST,
-                                    value=SCHEDULER_LIST[0],
+                                    choices=diff_scheduler_list,
+                                    value=diff_scheduler_list[0],
                                     label="Scheduler",
                                 )
                                 controlnet_seg_num_images_per_prompt = (

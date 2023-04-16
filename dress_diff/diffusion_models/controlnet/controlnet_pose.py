@@ -10,10 +10,11 @@ from PIL import Image
 
 from dress_diff.utils import (
     controlnet_pose_model_list,
+    diff_scheduler_list,
     get_scheduler_list,
     stable_model_list,
-    diff_scheduler_list,
 )
+
 
 class StableDiffusionControlNetPoseGenerator:
     def __init__(self):
@@ -146,8 +147,8 @@ class StableDiffusionControlNetPoseGenerator:
                                 )
 
                                 controlnet_pose_scheduler = gr.Dropdown(
-                                    choices=SCHEDULER_LIST,
-                                    value=SCHEDULER_LIST[0],
+                                    choices=diff_scheduler_list,
+                                    value=diff_scheduler_list[0],
                                     label="Scheduler",
                                 )
 
