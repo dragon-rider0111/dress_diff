@@ -12,14 +12,11 @@
 git clone https://github.com/kadirnar/dress_diff
 cd dress_diff
 pip install -r requirements.txt
-pip install -e.
 ```
 
 ### Web Demo Usage
 ```python
-from dress_diff import app
-
-app()
+python3 app.py
 ```
 
 ### Text2Image API Usage
