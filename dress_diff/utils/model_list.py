@@ -1,6 +1,5 @@
 stable_model_list = [
-    "runwayml/stable-diffusion-v1-5",
-    "prompthero/openjourney-v4",
+    "dress_model",
 ]
 
 controlnet_canny_model_list = [
